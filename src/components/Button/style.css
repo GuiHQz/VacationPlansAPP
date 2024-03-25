@@ -1,0 +1,15 @@
+@import url("../../App.css");
+
+.button {
+  cursor: pointer;
+  background-color: var(--purple-light);
+  color: var(--purple-background);
+  font-size: 40px;
+  padding: 10px 23px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.button:active {
+  transform: scale(0.90);
+}

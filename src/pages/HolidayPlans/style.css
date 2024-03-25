@@ -1,0 +1,91 @@
+@import url("../../App.css");
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  height: 100vh;
+}
+
+.title {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.button-edit {
+  cursor: pointer;
+}
+
+.button-edit:hover {
+  color: var(--purple-light);
+}
+
+.no-vacation-plans {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.no-vacation-plans h2 {
+  font-weight: 300;
+  font-size: large;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 2.5rem;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--purle);
+  padding: 1rem 0;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.detail-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  padding: 0 1rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  background-color: transparent;
+}
+
+.detail,
+.detail div,
+.detail span,
+.detail strong,
+.detail-title,
+.detail-title div,
+.detail-title span,
+.detail-title strong {
+  font-weight: 700;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.detail {
+  font-size: 14px;
+}
+
+.detail strong {
+  color: var(--purple-light);
+}
+
+.button-add {
+  height: 100%;
+  padding-bottom: .5rem;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}

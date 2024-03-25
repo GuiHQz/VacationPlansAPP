@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --purle: #282854;
+  --purple-light: #9191ed;
+  --purple-finished: #1b1b42;
+  --purple-background: #141439;
+}
+
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--purple-background);
+}
+
+/* 
+• CORES:
+ 9191ED - Botão
+ 282854 - Cor de cada plano de férias
+ 1B1B42 - Cor de cada plano de férias que já foi concluído
+ 141439 - Background da aplicação
+*/
