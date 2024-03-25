@@ -1,12 +1,14 @@
 import "./style.css";
 import { ChangeEvent, FormEvent, useState } from "react";
 
-import { post } from "../../services/apiClient";
-
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
+import { post } from "../../services/apiClient";
+import { Modal } from "../../components/Modal/Modal";
+
 export const AddHolidayPlans = () => {
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     id: "",
     title: "",
@@ -44,7 +46,16 @@ export const AddHolidayPlans = () => {
     navigate("/");
   };
 
-  const onCancelButton = () => {
+  const onCancelButton = (e: FormEvent) => {
+    e.preventDefault();
+    setIsModalVisible(true);
+  };
+
+  const onCancelModal = () => {
+    setIsModalVisible(false);
+  };
+
+  const onConfirmModal = () => {
     setFormData({
       id: "",
       title: "",
@@ -68,6 +79,12 @@ export const AddHolidayPlans = () => {
 
   return (
     <div className="container">
+      <Modal
+        title="Você gostaria de cancelar essa ação?"
+        isVisible={isModalVisible}
+        onCancel={onCancelModal}
+        onConfirm={onConfirmModal}
+      />
       <h3>Adicione um novo Plano de Férias</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">
@@ -78,6 +95,8 @@ export const AddHolidayPlans = () => {
             required
             value={formData.title}
             onChange={handleChange}
+            maxLength={22}
+            placeholder="Viagem de Natal | (Máximo caracteres: 22)"
           />
         </label>
         <label htmlFor="description">
@@ -86,6 +105,7 @@ export const AddHolidayPlans = () => {
             name="description"
             value={formData.description}
             onChange={handleChange}
+            placeholder="Ex: Visitar as praias, comprar lembranças para a família"
           />
         </label>
         <label htmlFor="date">
@@ -106,6 +126,8 @@ export const AddHolidayPlans = () => {
             required
             value={formData.location}
             onChange={handleChange}
+            maxLength={15}
+            placeholder="Los Angeles"
           />
         </label>
         <label htmlFor="participants">
@@ -116,6 +138,7 @@ export const AddHolidayPlans = () => {
             required
             value={formData.participants}
             onChange={handleChange}
+            placeholder="Guilherme, Glória, Matias, Sarah"
           />
         </label>
         <div className="button-area">
