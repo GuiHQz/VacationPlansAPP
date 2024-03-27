@@ -13,7 +13,7 @@ input, textarea {
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1); /* Inverte as cores do ícone para branco */
+  filter: invert(1);
 }
 
 form,

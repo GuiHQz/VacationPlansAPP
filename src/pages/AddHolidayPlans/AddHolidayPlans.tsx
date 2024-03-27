@@ -36,8 +36,6 @@ const AddHolidayPlans = () => {
         participants: participantsArray,
       };
 
-      console.log(updatedFormData);
-
       await post(updatedFormData);
     } catch (err) {
       console.log("Erro ao adicionar plano de férias: ", err);
