@@ -96,9 +96,12 @@ const HolidayPlans = () => {
               </button>
               {isExpanded === plan.id && (
                 <div className="details">
-                  <button className="detail">
-                    <strong>Descrição:</strong> <span>{plan.description}</span>
-                  </button>
+                  {plan.description && (
+                    <button className="detail">
+                      <strong>Descrição:</strong>{" "}
+                      <span>{plan.description}</span>
+                    </button>
+                  )}
                   <button className="detail">
                     <strong>Data:</strong> <span>{plan.date}</span>
                   </button>
