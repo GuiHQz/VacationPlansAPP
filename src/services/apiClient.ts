@@ -42,3 +42,36 @@ export const deleteHolidayPlan = async (id: string) => {
     throw new Error(`Erro ao excluir plano de férias: ${error}`);
   }
 };
+
+export const updateHolidayPlan = async (id: string, updatedData: any) => {
+  try {
+    const response = await fetch(`${apiUrl}/api/holiday-plans/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao atualziar plano de férias");
+    }
+
+    console.log("Plano de férias atualizado com sucesso.");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchHolidayPlanById = async (id: string) => {
+  try {
+    const response = await fetch(`${apiUrl}/api/holiday-plans/${id}`);
+    if (!response.ok) {
+      throw new Error("Erro ao buscar plano de férias.");
+    }
+    const planDetails = await response.json();
+    return planDetails;
+  } catch (error) {
+    console.log(error);
+  }
+};
