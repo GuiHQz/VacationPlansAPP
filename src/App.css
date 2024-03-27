@@ -3,8 +3,13 @@
 :root {
   --purle: #282854;
   --purple-light: #9191ed;
+  --purple-dark: #6d6db0;
   --purple-finished: #1b1b42;
   --purple-background: #141439;
+  --red: #bf4040;
+  --red-dark: #782828;
+  --green: #50d14d;
+  --green-dark: #399137;
 }
 
 * {
