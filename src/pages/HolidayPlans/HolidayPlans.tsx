@@ -1,6 +1,6 @@
 import "./style.css";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, MouseEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { CiFileOff } from "react-icons/ci";
@@ -12,7 +12,7 @@ import { HolidayPlanTypes } from "../../types/types";
 import { Button } from "../../components/Button/Button";
 import { deleteHolidayPlan } from "../../services/apiClient";
 
-export const HolidayPlans = () => {
+const HolidayPlans = () => {
   const [holidayPlans, setHolidayPlans] = useState<HolidayPlanTypes[]>([]);
   const [isExpanded, setIsExpanded] = useState<Number | String | null>(null);
   const [isModalVisible, setIsModalVisible] = useState<boolean>();
@@ -27,7 +27,8 @@ export const HolidayPlans = () => {
     navigate("/add");
   };
 
-  const handleDeletePlan = () => {
+  const handleDeletePlan = (e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     setIsModalVisible(true);
   };
 
@@ -80,7 +81,10 @@ export const HolidayPlans = () => {
                   >
                     <FaRegTrashAlt style={{ backgroundColor: "transparent" }} />
                   </div>
-                  <div className="button-icon__edit">
+                  <div
+                    className="button-icon__edit"
+                    onClick={() => navigate(`/edit/${plan.id}`)}
+                  >
                     <PiPencilSimpleDuotone
                       style={{
                         backgroundColor: "transparent",
@@ -117,3 +121,5 @@ export const HolidayPlans = () => {
     </div>
   );
 };
+
+export default HolidayPlans;

@@ -43,24 +43,33 @@ h3 {
 
 .button-add-plan {
   font-weight: 700;
+  transition: 0.3s;
   border-radius: 0.5rem;
   padding: 0.8rem 2.5rem;
+  color: #fff;
   cursor: pointer;
   font-size: medium;
   text-transform: uppercase;
-  color: #fff;
   background-color: var(--purple-light);
 }
 
+.button-add-plan:hover {
+  background-color: var(--purple-dark);
+}
+
 .button-cancel-plan {
+  transition: 0.3s;
   font-weight: 700;
+  margin-right: 10px;
   border-radius: 0.5rem;
   padding: 0.8rem 2.5rem;
+  color: #fff;
   cursor: pointer;
   font-size: medium;
   text-transform: uppercase;
-  color: var(--purple-background);
-  color: #fff;
-  background-color: #bf4040;
-  margin-right: 10px;
+  background-color: var(--red);
+}
+
+.button-cancel-plan:hover {
+  background-color: var(--red-dark);
 }

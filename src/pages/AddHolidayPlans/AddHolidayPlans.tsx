@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { post } from "../../services/apiClient";
 import { Modal } from "../../components/Modal/Modal";
 
-export const AddHolidayPlans = () => {
+const AddHolidayPlans = () => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     id: "",
@@ -88,7 +88,7 @@ export const AddHolidayPlans = () => {
       <h3>Adicione um novo Plano de Férias</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">
-          <span className="title-input">Titulo:</span>
+          <span className="title-input">Titulo: *</span>
           <input
             type="text"
             name="title"
@@ -109,7 +109,7 @@ export const AddHolidayPlans = () => {
           />
         </label>
         <label htmlFor="date">
-          <span className="title-input">Data:</span>
+          <span className="title-input">Data: *</span>
           <input
             type="date"
             name="date"
@@ -119,7 +119,7 @@ export const AddHolidayPlans = () => {
           />
         </label>
         <label htmlFor="location">
-          <span className="title-input">Local:</span>
+          <span className="title-input">Local: *</span>
           <input
             type="text"
             name="location"
@@ -131,7 +131,7 @@ export const AddHolidayPlans = () => {
           />
         </label>
         <label htmlFor="participants">
-          <span className="title-input">Participantes:</span>
+          <span className="title-input">Participantes: *</span>
           <input
             type="text"
             name="participants"
@@ -157,3 +157,5 @@ export const AddHolidayPlans = () => {
     </div>
   );
 };
+
+export default AddHolidayPlans;
