@@ -20,8 +20,8 @@ export const Modal: React.FC<ModalProps> = ({
           <div className="modal">
             <h3>{title}</h3>
             <div className="buttons">
-              <button onClick={onCancel}>NÃO</button>
-              <button onClick={onConfirm}>SIM</button>
+              <button className="onCancel" onClick={onCancel}>NÃO</button>
+              <button className="onConfirm" onClick={onConfirm}>SIM</button>
             </div>
           </div>
         </div>

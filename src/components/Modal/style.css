@@ -1,3 +1,5 @@
+@import url("../../App.css");
+
 .main-container {
   position: fixed;
   top: 0;
@@ -29,5 +31,25 @@
 
 .buttons button {
   color: #fff;
+  cursor: pointer;
+  font-weight: 700;
   padding: 1rem 2rem;
+}
+
+.onCancel {
+  background-color: var(--red);
+  transition: 0.3s;
+}
+
+.onCancel:hover {
+  background-color: var(--red-dark);
+}
+
+.onConfirm {
+  background-color: var(--green);
+  transition: 0.3s;
+}
+
+.onConfirm:hover {
+  background-color: var(--green-dark);
 }
