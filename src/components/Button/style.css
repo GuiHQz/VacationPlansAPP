@@ -2,14 +2,18 @@
 
 .button {
   cursor: pointer;
-  background-color: var(--purple-light);
   color: var(--purple-background);
+  background-color: var(--purple-light);
   font-size: 40px;
+  transition: 0.3s;
   padding: 10px 23px;
   border-radius: 50%;
-  transition: transform 0.2s;
+}
+
+.button:hover {
+  background-color: var(--purple-dark);
 }
 
 .button:active {
-  transform: scale(0.90);
+  transform: scale(0.9);
 }
