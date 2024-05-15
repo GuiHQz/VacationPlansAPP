@@ -59,14 +59,17 @@ const HolidayPlans = () => {
       <h2 className="title">Lista de Planos de Férias</h2>
       {holidayPlans.length === 0 ? (
         <div className="no-vacation-plans">
-          <h2>Oops... não encontramos nenhum plano de férias no momento</h2>
+          <h2>
+            Ops, não encontramos nenhum plano de férias. Que tal elaborar seu
+            próximo plano?
+          </h2>
           <CiFileOff size={100} />
         </div>
       ) : (
         holidayPlans.map((plan) => (
           <ul key={plan.id}>
             <Modal
-              title="Você deseja deletar esse plano?"
+              title="Você gostaria de deletar esse plano?"
               isVisible={isModalVisible}
               onCancel={cancelButtonModal}
               onConfirm={() => confirmButtonModal(plan.id)}

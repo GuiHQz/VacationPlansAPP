@@ -65,21 +65,21 @@ const UpdateHolidayPlans = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const participantsArray = plan.participants
-        .split(",")
-        .map((participant) => participant.trim());
+      const participantsArray = typeof plan.participants === 'string' ? 
+        plan.participants.split(",").map((participant) => participant.trim()) : 
+        [];
 
       const updatedplan = {
         title: plan.title,
         description: plan.description,
         date: plan.date,
         location: plan.location,
-        participants: participantsArray,
+        participants: participantsArray.length > 0 ? participantsArray : plan.participants,
       };
 
       await updateHolidayPlan(plan.id, updatedplan);
     } catch (err) {
-      console.log("Erro ao adicionar plano de férias: ", err);
+      console.log("Erro ao atualizar plano de férias: ", err);
     }
 
     navigate("/");
@@ -88,7 +88,7 @@ const UpdateHolidayPlans = () => {
   return (
     <>
       <Modal
-        title="Você deseja descartar as mudanças do seu plano?"
+        title="Você gostaria de descartar as mudanças do seu plano?"
         isVisible={isModalVisible}
         onCancel={onCancelModal}
         onConfirm={onConfirmModal}
@@ -157,7 +157,7 @@ const UpdateHolidayPlans = () => {
                   CANCELAR
                 </button>
                 <button className="button-add-plan" type="submit">
-                  ADD
+                  MUDAR
                 </button>
               </div>
             </form>

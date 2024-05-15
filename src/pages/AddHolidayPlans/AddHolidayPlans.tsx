@@ -78,7 +78,7 @@ const AddHolidayPlans = () => {
   return (
     <div className="container">
       <Modal
-        title="Você gostaria de cancelar essa ação?"
+        title="Você gostaria de cancelar a criação desse plano?"
         isVisible={isModalVisible}
         onCancel={onCancelModal}
         onConfirm={onConfirmModal}
