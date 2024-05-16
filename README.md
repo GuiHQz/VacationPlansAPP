@@ -17,7 +17,7 @@ A ideia desse projeto veio através de desafios pela internet, estava em busca d
 ## Design/Protótipo
 O website [Dribbble](https://dribbble.com) foi muito importante na hora de selecionar um protótipo visualmente atraente e bem estruturado, alinhando-o com os padrões de UX/UI.
 
-## Desenvolvedor - Meus contatos
+## Contatos
 Caso sinta de vontade de entrar em contato para informações ou dúvidas que tenha tido a respeito do projeto, vou deixar minhas plataformas e e-mail para contato:
 
 ``` 
