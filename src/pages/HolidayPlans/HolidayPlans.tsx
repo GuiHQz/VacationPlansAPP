@@ -15,6 +15,7 @@ import { deleteHolidayPlan } from "../../services/apiClient";
 const HolidayPlans = () => {
   const [holidayPlans, setHolidayPlans] = useState<HolidayPlanTypes[]>([]);
   const [isExpanded, setIsExpanded] = useState<Number | String | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [isModalVisible, setIsModalVisible] = useState<boolean>();
 
   const toggleExpanded = (planId: number | string) => {
@@ -27,10 +28,12 @@ const HolidayPlans = () => {
     navigate("/add");
   };
 
-  const handleDeletePlan = (e: MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    setIsModalVisible(true);
-  };
+  const handleDeletePlan =
+    (plandId: string) => (e: MouseEvent<HTMLDivElement>) => {
+      e.stopPropagation();
+      setSelectedPlan(plandId);
+      setIsModalVisible(true);
+    };
 
   const cancelButtonModal = () => {
     setIsModalVisible(false);
@@ -72,7 +75,9 @@ const HolidayPlans = () => {
               title="Você gostaria de deletar esse plano?"
               isVisible={isModalVisible}
               onCancel={cancelButtonModal}
-              onConfirm={() => confirmButtonModal(plan.id)}
+              onConfirm={() => {
+                if (selectedPlan) confirmButtonModal(selectedPlan);
+              }}
             />
             <li className="plan" onClick={() => toggleExpanded(plan.id)}>
               <button className="detail-title">
@@ -80,7 +85,7 @@ const HolidayPlans = () => {
                 <div className="buttons-icon">
                   <div
                     className="button-icon__delete"
-                    onClick={handleDeletePlan}
+                    onClick={handleDeletePlan(plan.id)}
                   >
                     <FaRegTrashAlt style={{ backgroundColor: "transparent" }} />
                   </div>
