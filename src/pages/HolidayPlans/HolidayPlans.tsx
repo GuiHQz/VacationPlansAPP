@@ -51,7 +51,8 @@ const HolidayPlans = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/holiday-plans")
+    const apiUrl = import.meta.env.VITE_API_URL;
+    fetch(`${apiUrl}/api/holiday-plans`)
       .then((response) => response.json())
       .then((data) => setHolidayPlans(data))
       .catch((error) => console.error("Error fetching holiday plans:", error));
