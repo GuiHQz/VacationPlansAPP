@@ -29,7 +29,10 @@ const UpdateHolidayPlans = () => {
       const fetchPlan = async () => {
         try {
           const planDetails = await fetchHolidayPlanById(id);
-          setPlan(planDetails);
+          const formattedDate = new Date(planDetails.date)
+            .toISOString()
+            .split("T")[0];
+          setPlan({ ...planDetails, date: formattedDate });
         } catch (error) {
           console.error("Erro ao buscar os dados do plano de férias: ", error);
         }
@@ -65,16 +68,20 @@ const UpdateHolidayPlans = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const participantsArray = typeof plan.participants === 'string' ? 
-        plan.participants.split(",").map((participant) => participant.trim()) : 
-        [];
+      const participantsArray =
+        typeof plan.participants === "string"
+          ? plan.participants
+              .split(",")
+              .map((participant) => participant.trim())
+          : [];
 
       const updatedplan = {
         title: plan.title,
         description: plan.description,
         date: plan.date,
         location: plan.location,
-        participants: participantsArray.length > 0 ? participantsArray : plan.participants,
+        participants:
+          participantsArray.length > 0 ? participantsArray : plan.participants,
       };
 
       await updateHolidayPlan(plan.id, updatedplan);

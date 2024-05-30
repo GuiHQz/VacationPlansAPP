@@ -1,13 +1,14 @@
 import "./style.css";
 
-import { useEffect, useState, MouseEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState, MouseEvent } from "react";
 
 import { CiFileOff } from "react-icons/ci";
 import { FaRegTrashAlt } from "react-icons/fa";
 import Loading from "../../assets/loading.gif";
 import { PiPencilSimpleDuotone } from "react-icons/pi";
 
+import { formatDate } from "../../services/masks";
 import { Modal } from "../../components/Modal/Modal";
 import { HolidayPlanTypes } from "../../types/types";
 import { Button } from "../../components/Button/Button";
@@ -128,7 +129,7 @@ const HolidayPlans = () => {
                     </button>
                   )}
                   <button className="detail">
-                    <strong>Data:</strong> <span>{plan.date}</span>
+                    <strong>Data:</strong> <span>{formatDate(plan.date)}</span>
                   </button>
                   <button className="detail">
                     <strong>Local:</strong> <span>{plan.location}</span>
