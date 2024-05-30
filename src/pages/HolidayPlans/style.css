@@ -7,6 +7,20 @@
   height: 100vh;
 }
 
+.loading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loading h4 {
+  font-weight: 300;
+  font-size: large;
+  text-align: center;
+  padding-top: 2.5rem;
+}
+
 .title {
   color: #fff;
   display: flex;

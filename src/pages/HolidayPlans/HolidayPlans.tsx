@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { CiFileOff } from "react-icons/ci";
 import { FaRegTrashAlt } from "react-icons/fa";
+import Loading from "../../assets/loading.gif";
 import { PiPencilSimpleDuotone } from "react-icons/pi";
 
 import { Modal } from "../../components/Modal/Modal";
@@ -17,6 +18,7 @@ const HolidayPlans = () => {
   const [isExpanded, setIsExpanded] = useState<Number | String | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [isModalVisible, setIsModalVisible] = useState<boolean>();
+  const [isLoading, setIsLoading] = useState<boolean>();
 
   const toggleExpanded = (planId: number | string) => {
     setIsExpanded((prevId) => (prevId === planId ? null : planId));
@@ -52,16 +54,30 @@ const HolidayPlans = () => {
 
   useEffect(() => {
     const apiUrl = import.meta.env.VITE_API_URL;
+    setIsLoading(true);
     fetch(`${apiUrl}/api/holiday-plans`)
       .then((response) => response.json())
-      .then((data) => setHolidayPlans(data))
-      .catch((error) => console.error("Error fetching holiday plans:", error));
+      .then((data) => {
+        setHolidayPlans(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching holiday plans:", error);
+        setIsLoading(false);
+      });
   }, []);
 
   return (
     <div className="container">
       <h2 className="title">Lista de Planos de Férias</h2>
-      {holidayPlans.length === 0 ? (
+      {isLoading ? (
+        <div className="loading">
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <img src={Loading} width="100px" alt="carregando" />
+          </div>
+          <h4>Aguarde</h4>
+        </div>
+      ) : holidayPlans.length === 0 ? (
         <div className="no-vacation-plans">
           <h2>
             Ops, não encontramos nenhum plano de férias. Que tal elaborar seu
